@@ -1,0 +1,354 @@
+﻿FUNCTION "betan" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	IF "io".m.betanit_mode THEN
+	    
+	    IF "io".i.stop THEN     // Kilépés
+	        
+	        "io".m.betanit_mode := 0;
+	        
+	    END_IF; // Kilépés
+	    
+	    IF "io".m.step_no = 0 THEN // Ujrinditas
+	        
+	        "io".m.lepesek := 0;
+	        "io".m.step_no := 1;
+	        
+	    END_IF; // Ujrainditas
+	    
+	    IF "io".m.step_no = 1 THEN // Elso lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma1 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb1 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc1 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md1 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 2;
+	            "io".m.lepesek := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Elso lepes beiras
+	    
+	    IF "io".m.step_no = 2 THEN // Masodik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma2 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb2 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc2 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md2 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 3;
+	            "io".m.lepesek := 2;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Masodik lepes beiras
+	    
+	    IF "io".m.step_no = 3 THEN // Harmadik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma3 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb3 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc3 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md3 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 4;
+	            "io".m.lepesek := 3;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Harmadik lepes beiras
+	    
+	    IF "io".m.step_no = 4 THEN // Negyedik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma4 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb4 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc4 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md4 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 5;
+	            "io".m.lepesek := 4;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Negyedik lepes beiras
+	    
+	    IF "io".m.step_no = 5 THEN // Otodik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma5 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb5 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc5 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md5 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 6;
+	            "io".m.lepesek := 5;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Otodik lepes beiras
+	    
+	    IF "io".m.step_no = 6 THEN // Hatodik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma6 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb6 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc6 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md6 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 7;
+	            "io".m.lepesek := 6;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Hatodik lepes beiras
+	    
+	    IF "io".m.step_no = 7 THEN // Hetedik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma7 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb7 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc7 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md7 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 8;
+	            "io".m.lepesek := 7;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Hetedik lepes beiras
+	    
+	    IF "io".m.step_no = 8 THEN // Nyolcadik lepes beiras
+	        
+	        IF "io".i.ma THEN
+	            
+	            "io".m.mem.ma8 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mb THEN
+	            
+	            "io".m.mem.mb8 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.mc THEN
+	            
+	            "io".m.mem.mc8 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.md THEN
+	            
+	            "io".m.mem.md8 := 1;
+	            
+	        END_IF;
+	        
+	        IF "io".i.pres THEN
+	            
+	            "io".m.step_no := 9;
+	            "io".m.lepesek := 8;
+	            
+	        END_IF;
+	        
+	        IF "io".i.start THEN
+	            
+	            "io".m.step_no := 0;
+	            
+	        END_IF;
+	        
+	    END_IF; // Nyolcadik lepes beiras
+	    
+	END_IF;
+	
+	
+	
+END_FUNCTION
+
