@@ -1,0 +1,70 @@
+﻿FUNCTION "kurvajo" : Void
+{ S7_Optimized_Access := 'TRUE' }
+VERSION : 0.1
+
+BEGIN
+	// FÖldszint maszkolás
+	
+	IF "liftio".Input.INT_0 THEN
+	    
+	    "liftio".Internal.intszint := "liftio".Internal.intszint OR 16#01;
+	    
+	END_IF;
+	
+	IF ("liftio".Internal.intszint AND 16#01) = 16#01 THEN   //  
+	    "liftio".Internal.Szint.fsz := 1;
+	END_IF;
+	
+	IF "liftio".Internal.Szint.fsz0 THEN   //   
+	    "liftio".Internal.intszint := "liftio".Internal.intszint AND 16#0E;
+	END_IF;
+	
+	// Egyes szint maszkolás
+	
+	IF "liftio".Input.INT_1 THEN
+	    
+	    "liftio".Internal.intszint := "liftio".Internal.intszint OR 16#02;
+	    
+	END_IF;
+	
+	IF ("liftio".Internal.intszint AND 16#02) = 16#02 THEN   //  
+	    "liftio".Internal.Szint."1" := 1;
+	END_IF;
+	
+	IF "liftio".Internal.Szint."10" THEN   //   
+	    "liftio".Internal.intszint := "liftio".Internal.intszint AND 16#0D;
+	END_IF;
+	
+	// Kettes szint maszkolás
+	
+	IF "liftio".Input.INT_2 THEN
+	    
+	    "liftio".Internal.intszint := "liftio".Internal.intszint OR 16#04;
+	    
+	END_IF;
+	
+	IF ("liftio".Internal.intszint AND 16#04) = 16#04 THEN   //  
+	    "liftio".Internal.Szint."2" := 1;
+	END_IF;
+	
+	IF "liftio".Internal.Szint."20" THEN   //   
+	    "liftio".Internal.intszint := "liftio".Internal.intszint AND 16#0B;
+	END_IF;
+	
+	// Hármas szint maszkolás
+	
+	IF "liftio".Input.INT_3 THEN
+	    
+	    "liftio".Internal.intszint := "liftio".Internal.intszint OR 16#8;
+	    
+	END_IF;
+	
+	IF ("liftio".Internal.intszint AND 16#08) = 16#08 THEN   //  
+	    "liftio".Internal.Szint."3" := 1;
+	END_IF;
+	
+	IF "liftio".Internal.Szint."30" THEN   //   
+	    "liftio".Internal.intszint := "liftio".Internal.intszint AND 16#09;
+	END_IF;
+END_FUNCTION
+
